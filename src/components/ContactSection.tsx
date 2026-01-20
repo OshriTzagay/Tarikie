@@ -15,15 +15,15 @@ export function ContactSection() {
     {
       icon: MessageCircle,
       label: t("contact.whatsapp"),
-      value: "054-123-4567",
-      href: "https://wa.me/972541234567",
+      value: "054-674-9866",
+      href: "https://wa.me/972546749866",
       primary: true,
     },
     {
       icon: Phone,
       label: t("contact.phone"),
-      value: "054-123-4567",
-      href: "tel:+972541234567",
+      value: "054-674-9866",
+      href: "tel:+972546749866",
     },
     {
       icon: Mail,
