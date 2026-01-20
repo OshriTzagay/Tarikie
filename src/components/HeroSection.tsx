@@ -47,13 +47,13 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-8"
+            className="mb-8 flex items-center justify-center gap-5"
           >
             <span className="inline-block font-heading text-2xl md:text-3xl font-bold text-gold tracking-wider mb-3">
               {t('hero.brand')}
             </span>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/30">
-              <Sparkles className="h-4 w-4 text-gold" />
+              {/* <Sparkles className="h-4 w-4 text-gold" /> */}
               <span className="text-gold text-sm font-medium">{t('hero.tagline')}</span>
             </div>
           </motion.div>
