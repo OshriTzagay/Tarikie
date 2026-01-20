@@ -32,113 +32,67 @@ interface Book {
   gallery: string[];
 }
 
-const books: Record<number, Book> = {
+// Helper function to get book data with translations
+const getBooksData = (t: (key: string) => string): Record<number, Book> => ({
   1: {
     id: 1,
-    title: "ספר מורשת משפחתי",
-    subtitle: "מסע בזמן דרך דורות המשפחה",
-    description: "ספר מפואר המתעד את ההיסטוריה העשירה של המשפחה בעיצוב מסורתי",
-    fullDescription: `ספר מורשת משפחתי זה הינו פרי עבודה מקיפה ומעמיקה של תיעוד ההיסטוריה המשפחתית. 
-
-הספר כולל תיעוד מפורט של כל הדורות, החל מהשורשים המשפחתיים הראשונים ועד לימינו אנו. כל עמוד בספר מעוצב בקפידה רבה, תוך שימוש בצבעים מסורתיים וחמים שמעניקים לו מראה אצילי ומכובד.
-
-הספר כולל:
-• אילן יוחסין מפורט עם כל הקשרים המשפחתיים
-• סיפורים ואנקדוטות מרתקות מהדורות הקודמים
-• תמונות נדירות ומסמכים היסטוריים
-• עיצוב גרפי עשיר ומרשים
-• כריכה קשה מהודרת עם הטבעת זהב
-
-ספר זה מהווה מתנה יקרת ערך לכל בני המשפחה ומשמש כגשר בין הדורות, המאפשר לדורות הצעירים להכיר את שורשיהם ולהתגאות במורשת המשפחתית העשירה.`,
+    title: t('books.book1.title'),
+    subtitle: t('books.book1.subtitle'),
+    description: t('books.book1.description'),
+    fullDescription: t('books.book1.fullDescription'),
     image: bookCover1,
-    category: "כריכה",
+    category: t('books.book1.category'),
     year: "2023",
-    family: "משפחת כהן",
+    family: t('books.book1.family'),
     gallery: [bookCover1, bookSpread1, bookSpread2],
   },
   2: {
     id: 2,
-    title: "אילן יוחסין משפחת טיים ואבטש יסאיס",
-    subtitle: "תיעוד שורשים וקשרים משפחתיים",
-    description: "תיעוד שורשים וקשרים משפחתיים לאורך הדורות",
-    fullDescription: `ספר יוחסין מיוחד זה מתעד את ההיסטוריה המפוארת של משפחת טיים ואבטש יסאיס.
-
-הספר נוצר בעקבות מחקר היסטורי מקיף שנמשך מספר שנים, ובו נאספו עדויות, תמונות ומסמכים היסטוריים נדירים מכל רחבי העולם. 
-
-תוכן הספר:
-• אילן יוחסין גרפי ומפורט המשתרע על פני מאות שנים
-• תיעוד של כל ענפי המשפחה והקשרים ביניהם
-• סיפורים אישיים ועדויות של בני המשפחה
-• תמונות היסטוריות נדירות מארכיוני המשפחה
-• מפות גיאוגרפיות המתארות את נדודי המשפחה
-
-הספר מעוצב בסגנון מודרני-מסורתי, המשלב בין טכנולוגיות עיצוב מתקדמות לבין ערכים מסורתיים של שמירה על המורשת המשפחתית. העיצוב הגרפי מדגיש את הקשרים המשפחתיים באמצעות איורים וסכמות ויזואליות ברורות ומרשימות.
-
-זהו ספר שישמש את המשפחה לדורות הבאים ויאפשר לכל בני המשפחה להכיר ולהתחבר לשורשיהם.`,
+    title: t('books.book2.title'),
+    subtitle: t('books.book2.subtitle'),
+    description: t('books.book2.description'),
+    fullDescription: t('books.book2.fullDescription'),
     image: bookCover2,
-    category: "עמודים פנימיים",
+    category: t('books.book2.category'),
     year: "2023",
-    family: "משפחת טיים ואבטש יסאיס",
+    family: t('books.book2.family'),
     gallery: [bookCover2, bookSpread1, bookSpread2],
   },
   3: {
     id: 3,
-    title: "אילן יוחסין משפחת אננייה מנמנו",
-    subtitle: "מורשת עשירה לדורות הבאים",
-    description: "ספר אלגנטי בסגנון מודרני עם צבעים חמים",
-    fullDescription: `ספר יוחסין יוקרתי זה מתעד את מסורת והיסטוריה של משפחת אננייה מנמנו.
-
-הספר נוצר מתוך רצון לשמר את המורשת המשפחתית ולהעבירה לדורות הבאים באופן מעוצב, מרשים ונגיש. 
-
-מאפייני הספר:
-• עיצוב מודרני ואלגנטי עם נגיעות מסורתיות
-• שימוש בצבעים חמים ומזמינים שיוצרים אווירה משפחתית
-• אילן יוחסין אינטראקטיבי וקל לקריאה
-• סיפורים משפחתיים שנאספו מראיונות עם בני המשפחה
-• גלריית תמונות עשירה המתעדת אירועים משפחתיים
-
-הספר מדגיש את הערכים המשפחתיים, את הקשרים החזקים בין בני המשפחה ואת המסורות המיוחדות שעוברות מדור לדור. העיצוב הגרפי משלב בין טכניקות עיצוב מודרניות לבין אלמנטים מסורתיים, ויוצר חוויה ויזואלית ייחודית.
-
-זהו ספר שמחבר בין העבר להווה ומהווה מקור השראה לדורות העתיד.`,
+    title: t('books.book3.title'),
+    subtitle: t('books.book3.subtitle'),
+    description: t('books.book3.description'),
+    fullDescription: t('books.book3.fullDescription'),
     image: bookSpread1,
-    category: "כריכה",
+    category: t('books.book3.category'),
     year: "2024",
-    family: "משפחת אננייה מנמנו",
+    family: t('books.book3.family'),
     gallery: [bookSpread1, bookCover1, bookCover2],
   },
   4: {
     id: 4,
-    title: "אילן יוחסין משפחת זיאמר",
-    subtitle: "תולדות טיים זיאמר איששו ווכה שרה",
-    description: "תולדות טיים זיאמר איששו ווכה שרה",
-    fullDescription: `ספר מורשת מיוחד זה מתעד את תולדות משפחת זיאמר - משפחה בעלת מורשת עשירה ומפוארת.
-
-הספר נכתב ועוצב בקפידה רבה, תוך איסוף מידע היסטורי מקיף מכל ענפי המשפחה. המטרה היא ליצור מסמך היסטורי מקיף שישמר את זיכרון המשפחה לדורות הבאים.
-
-תכני הספר:
-• תיעוד מפורט של משפחת טיים זיאמר איששו ווכה שרה
-• אילן יוחסין מקיף עם כל הקשרים המשפחתיים
-• סיפורים אישיים ומרגשים מחיי בני המשפחה
-• תיעוד של מסורות משפחתיות ייחודיות
-• אוסף תמונות נדיר ומרשים מארכיון המשפחה
-
-העיצוב הגרפי של הספר משלב בין אלמנטים קלאסיים למודרניים, תוך שימוש בצבעים עשירים ובפונטים אלגנטיים. כל עמוד מעוצב בקפידה רבה ומתואם לתוכן שבו.
-
-הספר מודפס על נייר איכותי במיוחד ומגיע עם כריכה קשה מהודרת, מה שמבטיח את עמידותו לאורך שנים רבות.`,
+    title: t('books.book4.title'),
+    subtitle: t('books.book4.subtitle'),
+    description: t('books.book4.description'),
+    fullDescription: t('books.book4.fullDescription'),
     image: bookSpread2,
-    category: "עמודים פנימיים",
+    category: t('books.book4.category'),
     year: "2024",
-    family: "משפחת זיאמר",
+    family: t('books.book4.family'),
     gallery: [bookSpread2, bookCover2, bookCover1],
   },
-};
+});
 
 export default function BookDetails() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const book = books[Number(id)];
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const { t, i18n } = useTranslation();
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  
+  // Get books with current language translations
+  const books = getBooksData(t);
+  const book = books[Number(id)];
   
   // Get other books for navigation
   const otherBooks = Object.values(books).filter(b => b.id !== Number(id));
