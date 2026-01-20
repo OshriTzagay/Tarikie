@@ -153,8 +153,8 @@ export default function BookDetails() {
               }}
               className="group"
             >
-              <span>{t('bookDetails.backToGallery')}</span>
               <ArrowRight className={`${i18n.language === 'he' ? 'mr-2' : 'ml-2'} h-4 w-4 transition-transform group-hover:translate-x-1`} />
+              <span>{t('bookDetails.backToGallery')}</span>
             </Button>
           </motion.div>
 
