@@ -26,12 +26,6 @@ export function Header() {
     i18n.changeLanguage(newLang);
   };
 
-  // Update document direction based on language
-  useEffect(() => {
-    document.documentElement.dir = i18n.language === 'he' ? 'rtl' : 'ltr';
-    document.documentElement.lang = i18n.language;
-  }, [i18n.language]);
-
   const handleNavClick = (href: string) => {
     const isHomePage = location.pathname === "/";
     
