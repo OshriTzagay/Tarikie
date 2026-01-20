@@ -158,8 +158,8 @@ export default function BookDetails() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-heading font-bold mb-4">הספר לא נמצא</h1>
-          <Button onClick={() => navigate("/")}>חזרה לדף הבית</Button>
+          <h1 className="text-4xl font-heading font-bold mb-4">{t('bookDetails.notFound')}</h1>
+          <Button onClick={() => navigate("/")}>{t('bookDetails.backToHome')}</Button>
         </div>
       </div>
     );
@@ -364,7 +364,7 @@ export default function BookDetails() {
                     <div className="aspect-[3/4] overflow-hidden bg-card">
                       <img
                         src={image}
-                        alt={`${book.title} - תמונה ${index + 1}`}
+                        alt={`${book.title} - ${t('bookDetails.imageNumber')} ${index + 1}`}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     </div>
@@ -417,7 +417,7 @@ export default function BookDetails() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               src={selectedImage}
-              alt="תמונה מוגדלת"
+              alt={t('bookDetails.imageAlt')}
               className="w-auto h-full max-w-[95vw] object-contain rounded-lg shadow-book"
               onClick={(e) => e.stopPropagation()}
             />

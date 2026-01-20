@@ -1,46 +1,48 @@
 import { motion } from "framer-motion";
 import { Users, Mic, BookOpen, CheckCircle, PenTool, Gift } from "lucide-react";
-
-const steps = [
-  {
-    icon: Users,
-    number: "01",
-    title: "פגישת היכרות",
-    description: "נפגש איתכם להבנת הצרכים וסיפור המשפחה",
-  },
-  {
-    icon: Mic,
-    number: "02",
-    title: "ראיונות עם זקני המשפחה",
-    description: "שיחות עם הסבים והסבתות לאיסוף זיכרונות וסיפורים",
-  },
-  {
-    icon: BookOpen,
-    number: "03",
-    title: "איסוף סיפורים",
-    description: "תיעוד קפדני של שמות, מקומות, תאריכים ואירועים",
-  },
-  {
-    icon: CheckCircle,
-    number: "04",
-    title: "אימות המידע",
-    description: "בדיקה מדוקדקת לוודא שכל פרט מדויק ומהימן",
-  },
-  {
-    icon: PenTool,
-    number: "05",
-    title: "כתיבה ועיצוב",
-    description: "עיצוב הספר עם אילן יוחסין מפואר ועמודים מעוצבים",
-  },
-  {
-    icon: Gift,
-    number: "06",
-    title: "מסירת הספר",
-    description: "ספר המורשת המשפחתי מגיע אליכם - לדורות הבאים",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export function ProcessSection() {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      icon: Users,
+      number: t("process.step1.number"),
+      title: t("process.step1.title"),
+      description: t("process.step1.description"),
+    },
+    {
+      icon: Mic,
+      number: t("process.step2.number"),
+      title: t("process.step2.title"),
+      description: t("process.step2.description"),
+    },
+    {
+      icon: BookOpen,
+      number: t("process.step3.number"),
+      title: t("process.step3.title"),
+      description: t("process.step3.description"),
+    },
+    {
+      icon: CheckCircle,
+      number: t("process.step4.number"),
+      title: t("process.step4.title"),
+      description: t("process.step4.description"),
+    },
+    {
+      icon: PenTool,
+      number: t("process.step5.number"),
+      title: t("process.step5.title"),
+      description: t("process.step5.description"),
+    },
+    {
+      icon: Gift,
+      number: t("process.step6.number"),
+      title: t("process.step6.title"),
+      description: t("process.step6.description"),
+    },
+  ];
   return (
     <section id="process" className="py-24 md:py-32 bg-card relative overflow-hidden">
       {/* Decorative Background */}
@@ -59,14 +61,14 @@ export function ProcessSection() {
           className="text-center mb-16"
         >
           <span className="text-sm font-body text-gold tracking-widest uppercase mb-4 block">
-            איך זה עובד
+            {t("process.badge")}
           </span>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-            תהליך העבודה
+            {t("process.title")}
           </h2>
           <div className="w-20 h-0.5 bg-gradient-gold mx-auto mb-8" />
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            ששה שלבים פשוטים להפיכת סיפור המשפחה לספר מורשת
+            {t("process.subtitle")}
           </p>
         </motion.div>
 

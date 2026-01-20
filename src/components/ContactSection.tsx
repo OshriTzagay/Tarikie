@@ -5,31 +5,33 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-
-const contactMethods = [
-  {
-    icon: MessageCircle,
-    label: "וואטסאפ",
-    value: "054-123-4567",
-    href: "https://wa.me/972541234567",
-    primary: true,
-  },
-  {
-    icon: Phone,
-    label: "טלפון",
-    value: "054-123-4567",
-    href: "tel:+972541234567",
-  },
-  {
-    icon: Mail,
-    label: "אימייל",
-    value: "info@tarikie.com",
-    href: "mailto:info@tarikie.com",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export function ContactSection() {
   const { toast } = useToast();
+  const { t } = useTranslation();
+
+  const contactMethods = [
+    {
+      icon: MessageCircle,
+      label: t("contact.whatsapp"),
+      value: "054-123-4567",
+      href: "https://wa.me/972541234567",
+      primary: true,
+    },
+    {
+      icon: Phone,
+      label: t("contact.phone"),
+      value: "054-123-4567",
+      href: "tel:+972541234567",
+    },
+    {
+      icon: Mail,
+      label: t("contact.email"),
+      value: "info@tarikie.com",
+      href: "mailto:info@tarikie.com",
+    },
+  ];
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -39,8 +41,8 @@ export function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "ההודעה נשלחה!",
-      description: "נחזור אליך בהקדם.",
+      title: t("contact.form.success"),
+      description: t("contact.form.successDescription"),
     });
     setFormData({ name: "", phone: "", message: "" });
   };
@@ -62,14 +64,14 @@ export function ContactSection() {
           className="text-center mb-16"
         >
           <span className="text-sm font-body text-gold tracking-widest uppercase mb-4 block">
-            צרו קשר
+            {t("contact.badge")}
           </span>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-            בואו נתחיל
+            {t("contact.title")}
           </h2>
           <div className="w-20 h-0.5 bg-gradient-gold mx-auto mb-8" />
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            רוצים לשמור את סיפור המשפחה שלכם? דברו איתנו
+            {t("contact.subtitle")}
           </p>
         </motion.div>
 
@@ -84,7 +86,7 @@ export function ContactSection() {
           >
             <div className="bg-card border border-border rounded-xl p-8 shadow-elegant">
               <h3 className="font-heading text-2xl font-semibold mb-6 text-foreground">
-                דרכי התקשרות
+                {t("contact.contactMethods")}
               </h3>
               <div className="space-y-4">
                 {contactMethods.map((method) => (
@@ -127,9 +129,9 @@ export function ContactSection() {
               <div className="flex items-center gap-3">
                 <Clock className="h-5 w-5 text-gold" />
                 <div>
-                  <p className="font-medium text-foreground">שעות פעילות</p>
+                  <p className="font-medium text-foreground">{t("contact.hours")}</p>
                   <p className="text-sm text-muted-foreground">
-                    ראשון - חמישי: 09:00 - 18:00 | שישי: 09:00 - 13:00
+                    {t("contact.hoursText")}
                   </p>
                 </div>
               </div>
@@ -148,19 +150,19 @@ export function ContactSection() {
               className="bg-card border border-border rounded-xl p-8 shadow-elegant space-y-6"
             >
               <h3 className="font-heading text-2xl font-semibold mb-2 text-foreground">
-                השאירו פרטים
+                {t("contact.leaveDetails")}
               </h3>
               <p className="text-muted-foreground text-sm mb-6">
-                מלאו את הפרטים ונחזור אליכם בהקדם
+                {t("contact.leaveDetailsSubtitle")}
               </p>
 
               <div className="space-y-4">
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
-                    שם מלא *
+                    {t("contact.form.name")} *
                   </label>
                   <Input
-                    placeholder="הכניסו את שמכם"
+                    placeholder={t("contact.form.namePlaceholder")}
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
@@ -171,11 +173,11 @@ export function ContactSection() {
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
-                    טלפון *
+                    {t("contact.form.phone")} *
                   </label>
                   <Input
                     type="tel"
-                    placeholder="050-000-0000"
+                    placeholder={t("contact.form.phonePlaceholder")}
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
@@ -186,10 +188,10 @@ export function ContactSection() {
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
-                    ספרו לנו על המשפחה
+                    {t("contact.form.message")}
                   </label>
                   <Textarea
-                    placeholder="כמה אתם בני המשפחה? מאיפה הגעתם לארץ?"
+                    placeholder={t("contact.form.messagePlaceholder")}
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
@@ -202,7 +204,7 @@ export function ContactSection() {
 
               <Button type="submit" variant="hero" size="lg" className="w-full">
                 <Send className="h-4 w-4 ml-2" />
-                שלחו פרטים
+                {t("contact.form.submit")}
               </Button>
             </form>
           </motion.div>

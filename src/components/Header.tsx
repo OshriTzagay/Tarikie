@@ -88,7 +88,7 @@ export function Header() {
                 <span className="absolute -bottom-1 right-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300" />
               </motion.button>
             ))}
-            {/* <Button
+             <Button
               variant="ghost"
               size="sm"
               onClick={toggleLanguage}
@@ -96,7 +96,7 @@ export function Header() {
             >
               <Languages className={`h-4 w-4 ${i18n.language === 'he' ? 'ml-1' : 'mr-1'} text-gold transition-transform group-hover:rotate-12`} />
               <span className="text-sm font-medium">{i18n.language === 'he' ? t('language.amharic') : t('language.hebrew')}</span>
-            </Button> */}
+            </Button> 
             <ThemeToggle />
           </nav>
 

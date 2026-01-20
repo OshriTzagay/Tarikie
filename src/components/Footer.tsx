@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function Footer() {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -15,10 +17,10 @@ export function Footer() {
             className="mb-8"
           >
             <h3 className="font-heading text-3xl md:text-4xl font-bold text-gold mb-3 tracking-wide">
-              טָריקֶה
+              {t("footer.brand")}
             </h3>
             <p className="text-muted-foreground text-sm">
-              ספרי אילן יוחסין למשפחות
+              {t("footer.tagline")}
             </p>
           </motion.div>
 
@@ -26,29 +28,29 @@ export function Footer() {
 
           <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm">
             <a href="#hero" className="text-muted-foreground hover:text-gold transition-colors">
-              בית
+              {t("footer.home")}
             </a>
             <a href="#about" className="text-muted-foreground hover:text-gold transition-colors">
-              מי אנחנו
+              {t("footer.about")}
             </a>
             <a href="#process" className="text-muted-foreground hover:text-gold transition-colors">
-              תהליך העבודה
+              {t("footer.process")}
             </a>
             <a href="#gallery" className="text-muted-foreground hover:text-gold transition-colors">
-              עבודות
+              {t("footer.gallery")}
             </a>
             <a href="#testimonials" className="text-muted-foreground hover:text-gold transition-colors">
-              המלצות
+              {t("footer.testimonials")}
             </a>
             <a href="#contact" className="text-muted-foreground hover:text-gold transition-colors">
-              צור קשר
+              {t("footer.contact")}
             </a>
           </div>
 
           <p className="text-sm text-muted-foreground flex items-center gap-2">
-            © {currentYear} טָריקֶה. כל הזכויות שמורות. 
+            © {currentYear} {t("footer.brand")}. {t("footer.rights")}. 
             <span className="flex items-center gap-1">
-              נבנה באהבה
+              {t("footer.builtWith")}
               <Heart className="h-4 w-4 text-gold fill-gold" />
             </span>
           </p>

@@ -1,30 +1,32 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    quote: "הספר שקיבלנו הוא אוצר אמיתי. הילדים שלנו סוף סוף מכירים את סיפור המשפחה שלנו מאתיופיה.",
-    name: "משפחת אברהם",
-    location: "נתניה",
-  },
-  {
-    quote: "אבא שלי בכה כשראה את הספר. לראשונה הוא ראה את כל הדורות של המשפחה במקום אחד.",
-    name: "משפחת מנגשה",
-    location: "אשדוד",
-  },
-  {
-    quote: "תודה על הסבלנות והכבוד שהראיתם לסבתא שלנו במהלך הראיונות. זו עבודה שנעשתה מכל הלב.",
-    name: "משפחת טקלה",
-    location: "בית שמש",
-  },
-  {
-    quote: "המורשת שלנו נשמרת עכשיו לנכדים ולנינים. זה מתנה שלא ניתן להעריך במילים.",
-    name: "משפחת אדמסו",
-    location: "תל אביב",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export function TestimonialsSection() {
+  const { t } = useTranslation();
+
+  const testimonials = [
+    {
+      quote: t("testimonials.testimonial1.quote"),
+      name: t("testimonials.testimonial1.name"),
+      location: t("testimonials.testimonial1.location"),
+    },
+    {
+      quote: t("testimonials.testimonial2.quote"),
+      name: t("testimonials.testimonial2.name"),
+      location: t("testimonials.testimonial2.location"),
+    },
+    {
+      quote: t("testimonials.testimonial3.quote"),
+      name: t("testimonials.testimonial3.name"),
+      location: t("testimonials.testimonial3.location"),
+    },
+    {
+      quote: t("testimonials.testimonial4.quote"),
+      name: t("testimonials.testimonial4.name"),
+      location: t("testimonials.testimonial4.location"),
+    },
+  ];
   return (
     <section id="testimonials" className="py-24 md:py-32 bg-card relative overflow-hidden">
       {/* Decorative Background */}
@@ -43,14 +45,14 @@ export function TestimonialsSection() {
           className="text-center mb-16"
         >
           <span className="text-sm font-body text-gold tracking-widest uppercase mb-4 block">
-            המלצות
+            {t("testimonials.badge")}
           </span>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-            מה המשפחות אומרות
+            {t("testimonials.title")}
           </h2>
           <div className="w-20 h-0.5 bg-gradient-gold mx-auto mb-8" />
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            סיפורים אמיתיים ממשפחות שכבר קיבלו את ספר המורשת שלהן
+            {t("testimonials.subtitle")}
           </p>
         </motion.div>
 
